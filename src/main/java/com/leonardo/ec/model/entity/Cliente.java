@@ -28,10 +28,6 @@ public class Cliente implements Serializable {
     private String correo;
     @Column(name= "fecha-registro")
     private Date fechaRegistro;
-
     
-
-
-
 
 }
