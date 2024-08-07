@@ -29,6 +29,8 @@ public class Cliente implements Serializable {
     @Column(name= "fecha-registro")
     private Date fechaRegistro;
 
+    
+
 
 
 
