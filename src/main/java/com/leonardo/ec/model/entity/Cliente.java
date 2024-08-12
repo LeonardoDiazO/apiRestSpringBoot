@@ -1,15 +1,12 @@
 package com.leonardo.ec.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
+import lombok.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -21,13 +18,17 @@ public class Cliente implements Serializable {
     @Column(name= "id_cliente")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCliente;
+
     @Column(name= "nombre")
     private String nombre;
-    private String apellido;
+
     @Column(name= "apellido")
+    private String apellido;
+
+    @Column(name= "correo")
     private String correo;
-    @Column(name= "fecha-registro")
+
+    @Column(name= "fecha_registro")
     private Date fechaRegistro;
-    
 
 }
