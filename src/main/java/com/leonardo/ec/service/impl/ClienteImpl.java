@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.leonardo.ec.model.dao.ClienteDao;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 
 
 @Service
@@ -15,6 +16,11 @@ public class ClienteImpl implements IClientService {
 
     @Autowired
     private ClienteDao clienteDao;
+
+    @Override
+    public List listAll() {
+        return (List)clienteDao.findAll();
+    }
 
     @Transactional
     @Override

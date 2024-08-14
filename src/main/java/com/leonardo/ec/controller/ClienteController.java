@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/v1")
@@ -17,6 +19,25 @@ public class ClienteController {
 
     @Autowired
     private IClientService clienteService;
+
+    @GetMapping("clientes")
+    public ResponseEntity<?>  showAll(){
+        List<Cliente> getList =  clienteService.listAll();
+
+        if(getList == null){
+            return  new ResponseEntity<>(MensajeResponse.builder()
+                    .mensaje("No existen registros")
+                    .object(null)
+                    .build(),
+                    HttpStatus.OK);
+        }
+        return  new ResponseEntity<>(MensajeResponse.builder()
+                .mensaje("Consulta exitosa")
+                .object(getList)
+                .build()
+                , HttpStatus.OK);
+
+    }
 
     @PostMapping("cliente")
     @ResponseStatus(HttpStatus.CREATED)
